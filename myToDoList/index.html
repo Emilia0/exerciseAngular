@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Planner">
+<head>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../datepicker.css" />
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="dashboard-heading col-md-12 col-xs-12"><h2>My to do list</h2></div>
+<div class=" col-md-12">
+    <div class="row">
+        <button class="btn btn-default" type="submit" ng-click="show=false">All tasks list</button>
+        <button class="btn btn-default" type="submit" ng-click="show=true">Manage tasks</button>
+
+    </div>
+    <div>
+        <manage-task ng-show="show"></manage-task>
+    </div>
+    <div class="row" ng-hide="show">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new task:</h3>
+            </div>
+            <div class="panel-body">
+
+                <form class="form-inline row">
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="text" class="form-control datepicker" id="data1" placeholder="Data" ng-model="newItem.date" style="margin-top:0px;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control"  placeholder="Wpisz nowe zadanie"ng-model="newItem.task" style="margin-top:0px;">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="addItem(newItem)">Add</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row" ng-hide="show">
+        <div class="panel panel-info col-md-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">Zaplanowane zadania:</h3>
+            </div>
+            <div class="panel-body allTaskList">
+                <ul>
+                    <li class="list-group-item" ng-repeat="item in taskList" ng-style="item.itemStyle">
+                        <span>{{item.date}}</span> :
+                        {{item.task}}</li>
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- scripts !-->
+<script src="../jquery.js"></script>
+<script src="../angular.js"></script>
+<script src="../bootstrap.js"></script>
+<script type="text/javascript" src="../bootstrap-datepicker.js"></script>
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+</html>

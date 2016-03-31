@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Planer">
+<html lang="en" ng-app="Planner">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="ToDoList.css">
     <link rel="stylesheet" type="text/css" media="all" href="../datepicker.css"/>
+    <link rel="stylesheet" href="ToDoList.css">
 </head>
 <body>
 
@@ -19,46 +19,49 @@
 <header>
 </header>
 
-<div class="container" ng-controller="ToDoList">
+<div class="container-fluid" ng-controller="ToDoList">
 
-    <div class="dashboard-heading col-md-12 col-xs-12"><h2>Zaplanuj swój tydzień</h2></div>
-    <div class="row">
-        <button class="btn btn-default" type="submit" ng-click="show=false">Lista wszystkich zadań</button>
-        <button class="btn btn-default" type="submit" ng-click="show=true">Zarządzaj zadaniami</button>
+    <div class="dashboard-heading col-md-offset-1 col-md-10 col-xs-12"><h2>My To Do List</h2></div>
+    <div class="row col-md-offset-1 col-md-10 col-xs-12">
+        <button class="btn btn-default col-md-2" type="submit" ng-click="show=false">All tasks</button>
+        <button class="btn btn-default col-md-2" type="submit" ng-click="show=true">Manage tasks</button>
 
     </div>
     <div>
         <change-list ng-show="show"></change-list>
     </div>
-    <div class="row" ng-hide="show">
+    <div class="row col-md-offset-1 col-md-10 col-xs-12" ng-hide="show">
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Dodaj nowe zadania:</h3>
+                <h3 class="panel-title">Add new task:</h3>
             </div>
             <div class="panel-body">
 
                 <form class="form-inline row">
-                    <div class="form-group">
-                        <label>Data</label>
-                        <input type="text" class="form-control datepicker" id="data1" placeholder="Data"
+                    <div class="input-group col-md-2">
+                        <!--<label>Date</label>-->
+                        <input type="text" class="form-control datepicker col-md-2" id="date1" placeholder="  Choose date"
                                ng-model="newItem.date">
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Wpisz nowe zadanie"
+                    <div class="input-group col-md-8">
+                        <input type="text" class="form-control col-md-2" id="taskInput" placeholder="My new task"
                                ng-model="newItem.task">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary" ng-click="addItem(newItem)">Add !</button>
+                        </span>
                     </div>
-                    <button type="submit" class="btn btn-default" ng-click="addItem(newItem)">Dodaj</button>
+
                 </form>
 
             </div>
         </div>
 
     </div>
-    <div class="row" ng-hide="show">
+    <div class="row col-md-offset-1 col-md-10 col-xs-12" ng-hide="show">
         <div class="panel panel-info col-md-12">
             <div class="panel-heading">
-                <h3 class="panel-title">Zaplanowane zadania:</h3>
+                <h3 class="panel-title">All tasks:</h3>
             </div>
             <div class="panel-body allTaskList">
                 <ul>

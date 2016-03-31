@@ -20,3 +20,11 @@
     max-height: 700px;
     overflow-y: scroll;
 }
+
+#date1, #taskInput {
+    margin-top: 0;
+}
+
+.panel   {
+    padding:0;
+}

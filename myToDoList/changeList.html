@@ -1,21 +1,21 @@
 <link rel="stylesheet" href="ToDoList.css">
 
-<div class="row panel-list col-md-12">
+<div class="row panel-list col-md-offset-1 col-md-10 col-xs-12">
 
     <div class="panel panel-info col-sm-12 col-md-12 col-lg-4">
         <div class="panel-heading">
-            <h3 class="panel-title">Zaplanowane zadania:</h3>
+            <h3 class="panel-title">Planned tasks:</h3>
 
         </div>
         <div class="panel-body scroll-panel">
             <ul ng-repeat="item in taskList | plannedTasks" ng-style="item.itemStyle">
                 <li class="list-group-item">
                     <button type="button" class="btn btn-success" ng-click="statusIntoDone(item)"
-                            data-toggle="tooltip" data-placement="right" title="Oznacz jako zrobione">
+                            data-toggle="tooltip" data-placement="right" title="mark as done">
                         <i class="fa fa-check"></i>
                     </button>
-                    <button type="button" class="btn btn-warning" ng-click="statusIntoAnnuled(item)"
-                            data-toggle="tooltip" data-placement="right" title="Anuluj zadanie">
+                    <button type="button" class="btn btn-warning" ng-click="statusIntoAnnulled(item)"
+                            data-toggle="tooltip" data-placement="right" title="annul task">
                         <i class="fa fa-minus"></i>
                     </button>
                     <span>{{item.date}}</span> :
@@ -29,7 +29,7 @@
 
     <div class="panel panel-success col-sm-12 col-md-12 col-lg-4">
         <div class="panel-heading">
-            <h3 class="panel-title">Zrealizowane zadania:</h3>
+            <h3 class="panel-title">Done tasks:</h3>
 
         </div>
         <div class="panel-body scroll-panel">
@@ -37,7 +37,7 @@
 
                 <li class="list-group-item">
                     <button type="button" class="btn btn-danger" ng-click="removeItem(item)"
-                            data-toggle="tooltip" data-placement="right" title="Usuń zadanie">
+                            data-toggle="tooltip" data-placement="right" title="delete task">
                         <i class="fa fa-trash-o"></i></button>
                     <span>{{item.date}}</span> :
                     {{item.task}}
@@ -51,18 +51,18 @@
 
     <div class="panel panel-warning col-sm-12 col-md-12 col-lg-4">
         <div class="panel-heading">
-            <h3 class="panel-title">Anulowane zadania:</h3>
+            <h3 class="panel-title">Annulled tasks:</h3>
 
         </div>
         <div class="panel-body scroll-panel">
-            <ul ng-repeat="item in taskList | annuledTasks" ng-style="item.itemStyle">
+            <ul ng-repeat="item in taskList | annulledTasks" ng-style="item.itemStyle">
                 <li class="list-group-item">
                     <button type="button" class="btn btn-info" ng-click="statusIntoPlanned(item)"
-                            data-toggle="tooltip" data-placement="right" title="Zaplanuj ponownie">
+                            data-toggle="tooltip" data-placement="right" title="plan again ">
                         <i class="fa fa-plus"></i>
                     </button>
                     <button type="button" class="btn btn-danger" ng-click="removeItem(item)"
-                            data-toggle="tooltip" data-placement="right" title="Usuń zadanie">
+                            data-toggle="tooltip" data-placement="right" title="delete task">
                         <i class="fa fa-trash-o"></i>
                     </button>
                     <span>{{item.date}}</span> :

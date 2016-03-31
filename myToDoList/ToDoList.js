@@ -1,34 +1,52 @@
 (function () {
-    var app = angular.module('Planer', []);
+    var app = angular.module('Planner', []);
 
     app.controller('ToDoList', function ($scope) {
+
+            var plannedColor = "#31708F",
+                plannedBackgroundColor = "#D9EDF7",
+                doneColor = "#3C763D",
+                doneBackgroundColor = "#DFF0D8",
+                annulledColor = "#8A6D3B",
+                annulledBackgroundColor = "#FCF8E3";
+
             $scope.taskList = [
-                {date: '2016-01-14', task: 'Sprzedać 300 USD', status: "isDone", itemStyle: {"color": "#3C763D", "background-color": "#DFF0D8"}},
                 {
-                    date: '2016-02-01',
-                    task: 'Sprzedać 1000 JPY, kupić 200 USD',
+                    date: '2016-01-14',
+                    task: 'Test done task',
                     status: "isDone",
-                    itemStyle: {"color": "#3C763D", "background-color": "#DFF0D8"}
+                    itemStyle: {"color": doneColor, "background-color": doneBackgroundColor}
                 },
                 {
-                    date: '2016-02-01',
-                    task: 'Sprzedać 2000 JPY, kupić 1500 USD',
+                    date: '2016-05-01',
+                    task: 'Another test done task',
+                    status: "isDone",
+                    itemStyle: {"color": doneColor, "background-color": doneBackgroundColor}
+                },
+                {
+                    date: '2016-06-01',
+                    task: 'Test planned task',
                     status: "isPlanned",
-                    itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}
+                    itemStyle: {"color": plannedColor, "background-color": plannedBackgroundColor}
                 },
                 {
-                    date: '2016-02-01',
-                    task: 'Sprzedać 1000 JPY, kupić 700 USD',
+                    date: '2016-08-01',
+                    task: 'Another test planned task',
                     status: "isPlanned",
-                    itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}
+                    itemStyle: {"color": plannedColor, "background-color": plannedBackgroundColor}
                 },
                 {
-                    date: '2016-02-01',
-                    task: 'Sprzedać 200 JPY, kupić 500 USD',
-                    status: "isAnnuled",
-                    itemStyle: {"color": "#8A6D3B", "background-color": "#FCF8E3"}
+                    date: '2016-09-01',
+                    task: 'Test annulled task',
+                    status: "isAnnulled",
+                    itemStyle: {"color": annulledColor, "background-color": annulledBackgroundColor}
                 },
-                {date: '2016-02-20', task: 'Kupić 2000 EUR 300 USD', status: "isAnnuled", itemStyle: {"color": "#8A6D3B", "background-color": "#FCF8E3"}}
+                {
+                    date: '2016-02-20',
+                    task: 'Another test annuled task',
+                    status: "isAnnulled",
+                    itemStyle: {"color": annulledColor, "background-color": annulledBackgroundColor}
+                }
             ];
 
             var today = new Date();
@@ -52,15 +70,20 @@
                 startDate: today
             });
 
-            $datepicker.on('changeDate', function(){
+            $datepicker.on('changeDate', function () {
                 $(this).datepicker('hide');
-                date = $("#data1").val();
+                date = $("#date1").val();
 
 
             });
 
 
-            $scope.newItem = {date: '', task: '', status: "isPlanned", itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}};
+            $scope.newItem = {
+                date: '',
+                task: '',
+                status: "isPlanned",
+                itemStyle: {"color": plannedColor, "background-color": plannedBackgroundColor}
+            };
 
             $scope.addItem = function (item) {
                 item.date = item.date || today;
@@ -78,16 +101,16 @@
 
             $scope.statusIntoDone = function (item) {
                 item.status = "isDone";
-                item.itemStyle = {"color": "#3C763D", "background-color": "#DFF0D8"}
+                item.itemStyle = {"color": doneColor, "background-color": doneBackgroundColor}
             };
             $scope.statusIntoPlanned = function (item) {
                 item.status = "isPlanned";
-                item.itemStyle = {"color": "#31708F", "background-color": "#D9EDF7"};
+                item.itemStyle = {"color": plannedColor, "background-color": plannedBackgroundColor};
                 item.date = today;
             };
-            $scope.statusIntoAnnuled = function (item) {
-                item.status = "isAnnuled";
-                item.itemStyle = {"color": "#8A6D3B", "background-color": "#FCF8E3"}
+            $scope.statusIntoAnnulled = function (item) {
+                item.status = "isAnnulled";
+                item.itemStyle = {"color": annulledColor, "background-color": annulledBackgroundColor}
             };
 
         }
@@ -108,10 +131,10 @@
                 return item.status === "isPlanned";
             });
         }
-    }).filter('annuledTasks', function () {
+    }).filter('annulledTasks', function () {
         return function (items) {
             return items.filter(function (item) {
-                return item.status === "isAnnuled";
+                return item.status === "isAnnulled";
             });
         }
     });

@@ -1,9 +1,35 @@
 (function () {
-    var app = angular.module('Planner', []);
+    var app = angular.module('Planer', []);
 
     app.controller('ToDoList', function ($scope) {
-            $scope.taskList = [];
-
+            $scope.taskList = [
+                {date: '2016-01-14', task: 'Sprzedać 300 USD', status: "isDone", itemStyle: {"color": "#3C763D", "background-color": "#DFF0D8"}},
+                {
+                    date: '2016-02-01',
+                    task: 'Sprzedać 1000 JPY, kupić 200 USD',
+                    status: "isDone",
+                    itemStyle: {"color": "#3C763D", "background-color": "#DFF0D8"}
+                },
+                {
+                    date: '2016-02-01',
+                    task: 'Sprzedać 2000 JPY, kupić 1500 USD',
+                    status: "isPlanned",
+                    itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}
+                },
+                {
+                    date: '2016-02-01',
+                    task: 'Sprzedać 1000 JPY, kupić 700 USD',
+                    status: "isPlanned",
+                    itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}
+                },
+                {
+                    date: '2016-02-01',
+                    task: 'Sprzedać 200 JPY, kupić 500 USD',
+                    status: "isAnnuled",
+                    itemStyle: {"color": "#8A6D3B", "background-color": "#FCF8E3"}
+                },
+                {date: '2016-02-20', task: 'Kupić 2000 EUR 300 USD', status: "isAnnuled", itemStyle: {"color": "#8A6D3B", "background-color": "#FCF8E3"}}
+            ];
 
             var today = new Date();
             var dd = today.getDate();
@@ -26,7 +52,7 @@
                 startDate: today
             });
 
-            $datepicker.on('changeDate', function () {
+            $datepicker.on('changeDate', function(){
                 $(this).datepicker('hide');
                 date = $("#data1").val();
 
@@ -34,12 +60,7 @@
             });
 
 
-            $scope.newItem = {
-                date: '',
-                task: '',
-                status: "isPlanned",
-                itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}
-            };
+            $scope.newItem = {date: '', task: '', status: "isPlanned", itemStyle: {"color": "#31708F", "background-color": "#D9EDF7"}};
 
             $scope.addItem = function (item) {
                 item.date = item.date || today;
@@ -70,9 +91,9 @@
             };
 
         }
-    ).directive('manageTask', function () {
+    ).directive('changeList', function () {
         return {
-            templateUrl: 'manageTask.html',
+            templateUrl: 'changeList.html',
             restrict: 'ACE'
         }
     }).filter('doneTasks', function () {

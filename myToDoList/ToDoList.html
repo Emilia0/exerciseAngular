@@ -2,7 +2,7 @@
 <html lang="en" ng-app="Planner">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>My To Do List</title>
 
@@ -40,13 +40,10 @@
 
                 <form class="form-inline row">
                     <div class="input-group col-md-2">
-                        <!--<label>Date</label>-->
-                        <input type="text" class="form-control datepicker col-md-2" id="date1" placeholder="  Choose date"
-                               ng-model="newItem.date">
+                        <input type="text" class="form-control datepicker col-md-2" id="date1" placeholder="  Choose date" ng-model="newItem.date">
                     </div>
                     <div class="input-group col-md-8">
-                        <input type="text" class="form-control col-md-2" id="taskInput" placeholder="My new task"
-                               ng-model="newItem.task">
+                        <input type="text" class="form-control col-md-2" id="taskInput" placeholder="My new task" ng-model="newItem.task">
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary" ng-click="addItem(newItem)">Add !</button>
                         </span>
@@ -82,9 +79,9 @@
 <footer></footer>
 
 
-<script type="text/javascript" src="../angular.js"></script>
+<script src="../angular.js"></script>
 <script src="../jquery.js"></script>
-<script type="text/javascript" src="../bootstrap-datepicker.js"></script>
+<script src="../bootstrap-datepicker.js"></script>
 <script src="ToDoList.js"></script>
 
 

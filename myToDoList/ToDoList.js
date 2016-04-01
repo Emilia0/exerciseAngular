@@ -66,17 +66,13 @@
             var $datepicker = $('.datepicker').datepicker({
                 weekStart: 1,
                 format: "yyyy-mm-dd",
-                //endDate: new.Date(),
                 startDate: today
             });
 
             $datepicker.on('changeDate', function () {
                 $(this).datepicker('hide');
                 date = $("#date1").val();
-
-
             });
-
 
             $scope.newItem = {
                 date: '',
@@ -86,12 +82,10 @@
             };
 
             $scope.addItem = function (item) {
-                item.date = item.date || today;
+                item.date = date || today;
                 if (item.task) {
                     var newItem = angular.copy(item);
-                    //newItem.status=statuses.isPlanned;
                     $scope.taskList.unshift(newItem);
-                    console.log($scope.taskList)
                 }
             };
             $scope.removeItem = function (item) {

@@ -12,37 +12,37 @@
 
             $scope.taskList = [
                 {
-                    date: '2016-01-14',
+                    date: '2015-01-14',
                     task: 'Test done task',
                     status: "isDone",
                     itemStyle: {"color": doneColor, "background-color": doneBackgroundColor}
                 },
                 {
-                    date: '2016-05-01',
+                    date: '2015-05-01',
                     task: 'Another test done task',
                     status: "isDone",
                     itemStyle: {"color": doneColor, "background-color": doneBackgroundColor}
                 },
                 {
-                    date: '2016-06-01',
+                    date: '2015-06-01',
                     task: 'Test planned task',
                     status: "isPlanned",
                     itemStyle: {"color": plannedColor, "background-color": plannedBackgroundColor}
                 },
                 {
-                    date: '2016-08-01',
+                    date: '2015-08-01',
                     task: 'Another test planned task',
                     status: "isPlanned",
                     itemStyle: {"color": plannedColor, "background-color": plannedBackgroundColor}
                 },
                 {
-                    date: '2016-09-01',
+                    date: '2015-09-01',
                     task: 'Test annulled task',
                     status: "isAnnulled",
                     itemStyle: {"color": annulledColor, "background-color": annulledBackgroundColor}
                 },
                 {
-                    date: '2016-02-20',
+                    date: '2015-02-20',
                     task: 'Another test annuled task',
                     status: "isAnnulled",
                     itemStyle: {"color": annulledColor, "background-color": annulledBackgroundColor}

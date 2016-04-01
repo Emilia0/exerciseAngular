@@ -62,7 +62,7 @@
             </div>
             <div class="panel-body allTaskList">
                 <ul>
-                    <li class="list-group-item" ng-repeat="item in taskList" ng-style="item.itemStyle">
+                    <li class="list-group-item" ng-repeat="item in taskList | orderBy:'date'" ng-style="item.itemStyle">
                         <span>{{item.date}}</span> :
                         {{item.task}}
                     </li>
